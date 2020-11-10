@@ -12,10 +12,11 @@ import org.junit.Test;
 	import cementerio.Empleado;
 	import cementerio.Nicho;
 	import cementerio.Tierra;
-
+        import cementerio.Osario;
 
 	public class TestCementerio {
-                 @Test
+		
+        @Test
 	public void testQueSeCargeUnEmpleadoAlCementerio() {
 	// Se carga un empleado al cementerio, el empleado no deberia ser cargado sin codigo de personal.
 		Empleado nuevo = new Empleado("Marcos", "Paz", 27654123);
