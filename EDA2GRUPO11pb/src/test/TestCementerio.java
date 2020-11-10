@@ -169,6 +169,56 @@ import org.junit.Test;
 		assertEquals(valorEsperado, valorObtenido);
 	}
 		
+		@Test
+	public void testQueBusqueUnDifuntoEnOsario() {
+		Empleado nuevo = new Empleado("Marcos", "Paz", 27654123);
+		Cementerio chacarita = new Cementerio("Chacarita");
+		nuevo.setCodigoPersonal(1);
+		chacarita.cargarEmpleado(nuevo);
+		chacarita.abrirElCementerio();
+		
+		Cliente miCliente = new Cliente("Jose", "Lopez", 32456765);
+		
+		Difunto miDifunto = new Difunto("Carlos", "Gardel", 23423456, "06/05/1900", "05/09/1965");
+		miCliente.setDifunto(miDifunto);
+	
+		
+		Osario osario = new Osario(20);
+		
+		osario.cargarOcupante(miDifunto);
+		
+		
+		Integer dni = 23423456;
+		Difunto buscar = osario.buscarDifunto(miDifunto);
+		assertEquals(dni, buscar.getDni());
+	}
+	
+	@Test
+	public void testQueMuestreLaCantidadDeDifuntosQueSeEncuentrenEnOsario() {
+		Empleado nuevo = new Empleado("Roberto", "Lopez", 23543224);
+		Cementerio chacarita = new Cementerio("Chacarita");
+		nuevo.setCodigoPersonal(1);
+		chacarita.cargarEmpleado(nuevo);
+		chacarita.abrirElCementerio();
+		
+		Cliente miCliente = new Cliente("Marcos", "Diaz", 12446765);
+		
+		Difunto miDifunto = new Difunto("Jose", "San Martin", 3423456, "06/05/1800", "05/09/1859");
+		miCliente.setDifunto(miDifunto);
+		
+		Cliente miCliente2 = new Cliente("Antonio", "Gonzalez", 24678999);
+		
+		Difunto miDifunto2 = new Difunto("Pablo", "Fernandez", 13423456, "06/05/1900", "05/09/1965");
+		miCliente2.setDifunto(miDifunto2);
+		
+		Osario osario = new Osario(23);
+		osario.cargarOcupante(miDifunto);
+		osario.cargarOcupante(miDifunto2);
+		
+		Integer valorEsperado = 2;
+		Integer valorObtenido = osario.contarCantidadDifuntosEnOsario();
+		assertEquals(valorEsperado, valorObtenido);
+	}
 		
 		
 
