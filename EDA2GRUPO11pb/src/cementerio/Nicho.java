@@ -10,4 +10,15 @@ public class Nicho extends Parcela {
 	public Nicho(Integer codigoParcela) {
 		super(codigoParcela);
 	}
+	@Override
+		public Boolean cargarOcupante(Difunto ocupantes) {
+			if(libres<=5) {
+				persona.add(ocupantes);
+				libres++;
+				lapida = "QEPD " + ocupantes.getNombre() + " " + ocupantes.getApellido() + " nacido: "
+						+ ocupantes.getFechaNacimiento() + " fallecido: " +ocupantes.getFechaFallecimiento();
+				return true;
+			}
+				return false;
+		}
 }

@@ -8,4 +8,15 @@ public class Tierra extends Parcela {
 	public Tierra(Integer codigoParcela) {
 		super(codigoParcela);
 	}
+	@Override
+	public Boolean cargarOcupante(Difunto ocupantes) {
+		if(libre==0) {
+			ocupante = ocupantes;
+			libre++;
+			lapida = "QEPD " + ocupantes.getNombre() + " " + ocupantes.getApellido() + " nacido: "
+					+ ocupantes.getFechaNacimiento() + " fallecido: " +ocupantes.getFechaFallecimiento();
+			return true;
+		}
+			return false;
+	}
 }

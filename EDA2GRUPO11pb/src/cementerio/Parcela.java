@@ -9,4 +9,26 @@ public abstract class Parcela {
 		super();
 		this.codigoParcela = codigoParcela;
 	}
+	public abstract Boolean cargarOcupante(Difunto ocupante);
+
+	public Double getPrecioPorMes() {
+		return precioPorMes;
+	}
+
+	public void setPrecioPorMes(Double precioPorMes) {
+		this.precioPorMes = precioPorMes;
+	}
+
+	public Integer getCodigoParcela() {
+		return codigoParcela;
+	}
+
+	public void setCodigoParcela(Integer codigoParcela) {
+		this.codigoParcela = codigoParcela;
+	}
+
+	public String VerLapida() {
+		return lapida;
+	}
+	
 }

@@ -10,4 +10,12 @@ public class Osario extends Parcela {
 		super(codigoParcela);
 		persona =new HashSet<Difunto> ();
 	}
+	@Override
+	public Boolean cargarOcupante(Difunto ocupante) {
+		if(persona.add(ocupante)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 }

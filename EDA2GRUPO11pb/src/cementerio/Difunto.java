@@ -9,4 +9,19 @@ public class Difunto extends Persona {
 		this.fechaNacimiento = fechaNacimiento;
 		this.fechaFallecimiento = fechaFallecimiento;
 	}
+	public String getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(String fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public String getFechaFallecimiento() {
+		return fechaFallecimiento;
+	}
+
+	public void setFechaFallecimiento(String fechaFallecimiento) {
+		this.fechaFallecimiento = fechaFallecimiento;
+	}
 }

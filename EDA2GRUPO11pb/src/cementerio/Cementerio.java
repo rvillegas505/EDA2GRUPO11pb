@@ -21,4 +21,44 @@ public class Cementerio {
 		zonasTerrestres = new HashSet<Tierra>();
 		zonasAerea = new HashSet<Nicho>();
 	}
+	
+	public Boolean cargarEmpleado(Empleado nuevo) {
+		if(nuevo.ingresarCodigoEnElCementerio()!=0) {
+			personal.add(nuevo);
+			return true;
+		}else
+			return false;
+	}
+	
+	public Boolean abrirElCementerio() {
+		if(personal.size()>=1) {
+			estadoDelCementerio = true;
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public Boolean cargarNuevoCliente(Cliente nuevo) {
+		if(estadoDelCementerio.equals(true)) {
+			clientes.add(nuevo);
+			return true;
+		}else {
+			return false;
+		}	
+	
+	}
+	public Boolean enterrarDifunto(Cliente nuevo) {
+		Tierra nueva = new Tierra(tierras);
+		Boolean a = false;
+		if(nueva.cargarOcupante(nuevo.entregarDifunto())) {
+			a = true;
+			tierras++;
+		}
+		if(a.equals(true)) {
+			zonasTerrestres.add(nueva);
+			return true;
+		}
+			return false;
+	}
 }

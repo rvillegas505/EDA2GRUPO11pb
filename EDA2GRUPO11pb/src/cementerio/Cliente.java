@@ -11,4 +11,14 @@ public class Cliente extends Persona {
 	public Difunto entregarDifunto() {
 		return difunto;
 	}
+	public Difunto entregarDifunto() {
+		return difunto;
+	}
+	public void setDifunto(Difunto difunto) {
+		this.difunto = difunto;
+	}	
+	
+	public void setDinero (Integer dinero) {
+		this.dinero=dinero;
+	}
 }
