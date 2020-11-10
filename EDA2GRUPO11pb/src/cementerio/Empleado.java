@@ -14,4 +14,10 @@ public class Empleado extends Persona {
 	public Integer ingresarCodigoEnElCementerio() {
 		return codigoPersonal;
 	}
+	
+	public void setCodigoPersonal(Integer codigoPersonal) {
+		if(codigoPersonal>=1 && codigoPersonal<=100) {
+			this.codigoPersonal = codigoPersonal;
+		}
+	}
 }

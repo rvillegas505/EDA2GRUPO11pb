@@ -61,4 +61,31 @@ public class Cementerio {
 		}
 			return false;
 	}
+
+public Boolean depositarEnNichoUnDifunto(Cliente nuevo) {
+		Nicho nueva = new Nicho(nichos);
+		Boolean a = false;
+		if(nueva.cargarOcupante(nuevo.entregarDifunto())) {
+			a = true;
+			nichos++;
+		}
+		if(a.equals(true)) {
+			zonasAerea.add(nueva);
+			return true;
+		}
+			return false;
+	}
+	
+	public Boolean depositarEnOsario(Cliente nuevo) {
+		Osario nueva = new Osario(1);
+		Boolean a = false;
+		if(nueva.cargarOcupante(nuevo.entregarDifunto())) {
+			a = true;
+		}
+		if(a.equals(true)) {
+			zonasComun = (nueva);
+			return true;
+		}
+			return false;
+	}
 }

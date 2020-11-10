@@ -18,4 +18,16 @@ public class Osario extends Parcela {
 			return false;
 		}
 	}
+	
+	@Override
+	public String VerLapida() {
+		String a = "";
+		for (Difunto difunto : persona) {
+			a+= "Osario\n";
+			a+= "QEPD " + difunto.getNombre() + " " + difunto.getApellido() + " nacido: "
+					+ difunto.getFechaNacimiento() + " fallecido: " +difunto.getFechaFallecimiento();
+			a +="\n";
+		}
+			return a;
+	}
 }

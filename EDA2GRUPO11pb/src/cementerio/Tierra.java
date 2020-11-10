@@ -19,4 +19,9 @@ public class Tierra extends Parcela {
 		}
 			return false;
 	}
+	
+//Agregado para metodos de pago
+			public Integer getCuota(){
+				return costoCuota;
+			}
 }

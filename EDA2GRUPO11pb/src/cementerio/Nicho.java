@@ -21,4 +21,21 @@ public class Nicho extends Parcela {
 			}
 				return false;
 		}
+	
+	//Agregado para metodos de pago
+		public Integer getCuota(){
+			return costoCuota;
+		}
+		
+		public Boolean removerOcupante(Difunto uno) {
+			Boolean ocupante = false;
+			for (Difunto difunto : persona) {
+				if(difunto.equals(uno)) {
+					difunto = null;
+					ocupante = true;
+			}
+				
+				}
+			return ocupante;
+		}
 }
