@@ -88,4 +88,28 @@ public Boolean depositarEnNichoUnDifunto(Cliente nuevo) {
 		}
 			return false;
 	}
+
+public String verLapidasDeTierra() {
+		String a = "";
+		for (Tierra tierra : zonasTerrestres) {
+			a+="Terrestre codigo:" + tierra.getCodigoParcela() + "\n";
+			a += tierra.VerLapida();
+			a +="\n";
+		}
+			return a;
+	}
+public String verLapidasDeAire() {
+		String a = "";
+		for (Nicho nicho : zonasAerea) {
+			a+="Nicho codigo:" + nicho.getCodigoParcela() +"\n";
+			a += nicho.VerLapida();
+			a +="\n";
+		}
+			return a;
+	}
+	
+	public String verLapidaDelOsario() {
+		return zonasComun.VerLapida();
+	}
+	
 }

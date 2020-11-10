@@ -24,4 +24,16 @@ public class Tierra extends Parcela {
 			public Integer getCuota(){
 				return costoCuota;
 			}
+			public Boolean removerOcupante() {
+			if(ocupante!=null) {
+				ocupante = null;
+				return true;
+			}else
+				return false;
+		}
+
+		public Difunto getOcupante() {
+			return ocupante;
+		}
+
 }

@@ -38,4 +38,17 @@ public class Nicho extends Parcela {
 				}
 			return ocupante;
 		}
+
+public Difunto buscarDifunto(Difunto uno) {
+		for (Difunto difunto : persona) {
+			if(uno.getDni().equals(difunto.getDni())) {
+				return difunto;
+			}
+		}
+			    return null;
+	}
+	
+	public Integer contarCantidadDifuntosEnNicho() {
+		return this.persona.size();
+	}
 }
