@@ -112,4 +112,87 @@ public String verLapidasDeAire() {
 		return zonasComun.VerLapida();
 	}
 	
+	public String getNombreDelCementerio() {
+		return nombreDelCementerio;
+	}
+
+	public void setNombreDelCementerio(String nombreDelCementerio) {
+		this.nombreDelCementerio = nombreDelCementerio;
+	}
+
+	public HashSet<Empleado> getPersonal() {
+		return personal;
+	}
+
+	public void setPersonal(HashSet<Empleado> personal) {
+		this.personal = personal;
+	}
+
+	public HashSet<Tierra> getZonasTerrestres() {
+		return zonasTerrestres;
+	}
+
+	public void setZonasTerrestres(HashSet<Tierra> zonasTerrestres) {
+		this.zonasTerrestres = zonasTerrestres;
+	}
+
+	public HashSet<Nicho> getZonasAerea() {
+		return zonasAerea;
+	}
+
+	public void setZonasAerea(HashSet<Nicho> zonasAerea) {
+		this.zonasAerea = zonasAerea;
+	}
+
+	public Osario getZonasComun() {
+		return zonasComun;
+	}
+
+	public void setZonasComun(Osario zonasComun) {
+		this.zonasComun = zonasComun;
+	}
+
+	public ArrayList<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(ArrayList<Cliente> clientes) {
+		this.clientes = clientes;
+	}
+	
+	public Boolean pasajeDeTierraAOsario(Difunto uno) {
+		Difunto pasado;
+		Boolean exito = false;
+		for (Tierra tierra : zonasTerrestres) {
+			if(tierra.getOcupante().getDni().equals(uno.getDni())) {
+				pasado = tierra.getOcupante();
+				tierra.removerOcupante();
+				zonasComun.cargarOcupante(pasado);
+				exito = true;
+			}
+		}	
+				return exito;
+	}
+	
+	public Boolean pasajeDeNichoAOsario(Difunto uno) {
+		Difunto pasado = null;
+		Boolean exito = false;
+		for (Nicho nicho : zonasAerea) {
+			pasado = nicho.buscarDifunto(uno);
+			zonasComun.cargarOcupante(pasado);
+			nicho.removerOcupante(uno);
+			exito = true;
+		}
+			return exito;
+	}
+	
+	public String verListaDeClientes() {
+		String a = "";
+		for (Cliente cliente : clientes) {
+			a += "Cliente: " + cliente.getNombre() + " " + cliente.getApellido() + " " + cliente.getDni();
+			a +="\n";
+		}
+			return a;
+	}
+	
 }
