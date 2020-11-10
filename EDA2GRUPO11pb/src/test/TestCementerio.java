@@ -15,7 +15,32 @@ import org.junit.Test;
 
 
 	public class TestCementerio {
-
+                 @Test
+	public void testQueSeCargeUnEmpleadoAlCementerio() {
+	// Se carga un empleado al cementerio, el empleado no deberia ser cargado sin codigo de personal.
+		Empleado nuevo = new Empleado("Marcos", "Paz", 27654123);
+		Cementerio chacarita = new Cementerio("Chacarita");
+		
+		nuevo.setCodigoPersonal(1);
+		
+		Boolean cargado = chacarita.cargarEmpleado(nuevo);
+		
+		assertTrue(cargado);
+		
+	}
+	@Test
+	public void testQueSeAbraElCementerio() {
+		//Abrir el cementerio, no se deberia abrir sin un empleado
+		Empleado nuevo = new Empleado("Marcos", "Paz", 27654123);
+		Cementerio chacarita = new Cementerio("Chacarita");
+		
+		nuevo.setCodigoPersonal(1);
+		chacarita.cargarEmpleado(nuevo);
+		
+		Boolean abrir = chacarita.abrirElCementerio();
+		
+		assertTrue(abrir);
+	}
 		
 		@Test
 		public void testQueSeDepositeElDifuntoEnNicho() {
