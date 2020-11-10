@@ -58,7 +58,7 @@ import org.junit.Test;
 		@Test
 		public void testQueSePuedaPagarCuotaNicho() {  
 			//el cementerio se encarga de depositar al difunto, segun la eleccion de la parcela
-			//Si no se paga la cuota ese difunto se remover· de nicho a osario.
+			//Si no se paga la cuota ese difunto se remover√° de nicho a osario.
 			Empleado nuevo = new Empleado("Marcos", "Paz", 27654123);
 			Cementerio chacarita = new Cementerio("Chacarita");
 			nuevo.setCodigoPersonal(1);
@@ -72,7 +72,7 @@ import org.junit.Test;
 			
 			Boolean enterro = chacarita.depositarEnNichoUnDifunto(pablo);
 			
-			//Comienza VerificaciÛn de Pago de Cuota
+			//Comienza Verificaci√≥n de Pago de Cuota
 			
 			Nicho nicho1 = new Nicho(1);
 			
@@ -88,7 +88,7 @@ import org.junit.Test;
 		@Test
 		public void testQueSePuedaPagarCuotaTierra() {  
 			//el cementerio se encarga de depositar al difunto, segun la eleccion de la parcela
-			//Si no se paga la cuota ese difunto se remover· de nicho a osario.
+			//Si no se paga la cuota ese difunto se remover√° de nicho a osario.
 			Empleado nuevo = new Empleado("Marcos", "Paz", 27654123);
 			Cementerio chacarita = new Cementerio("Chacarita");
 			nuevo.setCodigoPersonal(1);
@@ -102,7 +102,7 @@ import org.junit.Test;
 			
 			Boolean enterro = chacarita.enterrarDifunto(hugo);
 			
-			//Comienza VerificaciÛn de Pago de Cuota
+			//Comienza Verificaci√≥n de Pago de Cuota
 			
 			Tierra tierraN = new Tierra(1);
 			
@@ -118,7 +118,56 @@ import org.junit.Test;
 			assertTrue(pagar);
 		}
 		
+		@Test
+		public void testQueBusqueUnDifuntoEnNicho() {
+		Empleado nuevo = new Empleado("Marcos", "Paz", 27654123);
+		Cementerio chacarita = new Cementerio("Chacarita");
+		nuevo.setCodigoPersonal(1);
+		chacarita.cargarEmpleado(nuevo);
+		chacarita.abrirElCementerio();
 		
+		Cliente miCliente = new Cliente("Jose", "Lopez", 32456765);
+		
+		Difunto miDifunto = new Difunto("Carlos", "Gardel", 23423456, "06/05/1900", "05/09/1965");
+		miCliente.setDifunto(miDifunto);
+	
+		
+		Nicho nicho = new Nicho(20);
+		
+		nicho.cargarOcupante(miDifunto);
+		
+		
+		Integer dni = 23423456;
+		Difunto buscar = nicho.buscarDifunto(miDifunto);
+		assertEquals(dni, buscar.getDni());
+	}
+	
+		@Test
+		public void testQueMuestreLaCantidadDeDifuntosQueSeEncuentrenEnNicho() {
+		Empleado nuevo = new Empleado("Roberto", "Lopez", 23543224);
+		Cementerio chacarita = new Cementerio("Chacarita");
+		nuevo.setCodigoPersonal(1);
+		chacarita.cargarEmpleado(nuevo);
+		chacarita.abrirElCementerio();
+		
+		Cliente miCliente = new Cliente("Marcos", "Diaz", 12446765);
+		
+		Difunto miDifunto = new Difunto("Jose", "San Martin", 3423456, "06/05/1800", "05/09/1859");
+		miCliente.setDifunto(miDifunto);
+		
+		Cliente miCliente2 = new Cliente("Antonio", "Gonzalez", 24678999);
+		
+		Difunto miDifunto2 = new Difunto("Pablo", "Fernandez", 13423456, "06/05/1900", "05/09/1965");
+		miCliente2.setDifunto(miDifunto2);
+		
+		Nicho nicho = new Nicho(23);
+		nicho.cargarOcupante(miDifunto);
+		nicho.cargarOcupante(miDifunto2);
+		
+		Integer valorEsperado = 2;
+		Integer valorObtenido = nicho.contarCantidadDifuntosEnNicho();
+		assertEquals(valorEsperado, valorObtenido);
+	}
 		
 		
 		
