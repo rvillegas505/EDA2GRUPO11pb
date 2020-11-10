@@ -30,4 +30,13 @@ public class Osario extends Parcela {
 		}
 			return a;
 	}
+	
+	public Difunto buscarDifunto(Difunto uno) {
+		for (Difunto difunto : persona) {
+			if(uno.getDni().equals(difunto.getDni())) {
+				return difunto;
+			}
+		}
+			    return null;
+	}
 }
