@@ -39,4 +39,8 @@ public class Osario extends Parcela {
 		}
 			    return null;
 	}
+	
+	public Integer contarCantidadDifuntosEnOsario(){
+		return this.persona.size();
+	}
 }
