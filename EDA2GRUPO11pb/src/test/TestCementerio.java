@@ -63,6 +63,44 @@ import org.junit.Test;
 		}
 		
 		@Test
+	public void testQueUnNuevoClienteTengaUnDifunto() {
+		Empleado nuevo = new Empleado("Marcos", "Paz", 27654123);
+		Cementerio chacarita = new Cementerio("Chacarita");
+		
+		nuevo.setCodigoPersonal(1);
+		chacarita.cargarEmpleado(nuevo);
+		chacarita.abrirElCementerio();
+		
+		Cliente hugo = new Cliente("Hugo", "Jimenez", 37987562);
+		Difunto familiar = new Difunto("Pablo", "Jimenez", 10876345, "12/08/1920", "06/11/2020");
+		hugo.setDifunto(familiar);
+		
+		Difunto a1 = hugo.entregarDifunto();
+		
+		assertNotNull(a1);
+	}
+	
+	@Test
+	public void testQueSeEntierreUnDifunto() {
+		//el cementerio se encarga de enterrar al difunto, segun la eleccion de la parcela
+		Empleado nuevo = new Empleado("Marcos", "Paz", 27654123);
+		Cementerio chacarita = new Cementerio("Chacarita");
+		nuevo.setCodigoPersonal(1);
+		chacarita.cargarEmpleado(nuevo);
+		chacarita.abrirElCementerio();
+		
+		Cliente hugo = new Cliente("Hugo", "Jimenez", 37987562);
+		
+		Difunto familiar = new Difunto("Pablo", "Jimenez", 10876345, "12/08/1920", "06/11/2020");
+		hugo.setDifunto(familiar);
+		
+		Boolean enterro = chacarita.enterrarDifunto(hugo);
+		
+		assertTrue(enterro);
+		
+	}
+		
+		@Test
 		public void testQueSeDepositeElDifuntoEnOsario() {
 			//el cementerio se encarga de depositar al difunto, en el osario.
 			Empleado nuevo = new Empleado("Marcos", "Paz", 27654123);
